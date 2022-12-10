@@ -49,18 +49,12 @@ function setGif(source){
     };
 }
 
-function fetchGif(searchTerm){
+async function fetchGif(searchTerm){
     const url = buildGiphyApiEndpointUrl(searchTerm);
 
-    const gifPromise = (
-        fetch(buildGiphyApiEndpointUrl(searchTerm), {mode: "cors"})
-        .then(response => {
-            return response.json()
-        })
-        .then(response => {
-            return Promise.resolve(response.data.images.original.url);
-        })
-    )
+    const ApiResponse = await fetch(url, {mode: "cors"});
+    const gifData = await ApiResponse.json();
+    const gifPromise = Promise.resolve(gifData.data.images.original.url);
 
     return gifPromise;
 }
