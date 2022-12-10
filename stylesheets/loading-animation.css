@@ -1,0 +1,34 @@
+:root{
+    --loading-dots-background-color: mediumseagreen;
+    --loading-dots-shadow-color: seagreen;
+}
+
+#loading-animation{
+    background-color: var(--main-background-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#loading-animation > .jumping-dot{
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    background-color: var(--loading-dots-background-color);
+    box-shadow: inset 1px -1px 6px 1px var(--loading-dots-shadow-color);
+    animation: bounce 0.8s  0s infinite;
+}
+
+#loading-animation > .jumping-dot#middle{
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}

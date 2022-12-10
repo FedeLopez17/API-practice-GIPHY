@@ -1,0 +1,103 @@
+:root{
+    --nav-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,78,1) 35%, rgba(0,0,0,1) 100%);
+    --invalid-input-border-color: deeppink;
+    --search-button-icon-color: white;
+    --search-button-background-color: mediumseagreen;
+    --search-button-shadow-color: seagreen;
+    --search-button-background-color-hover: seagreen;
+    --invalid-message-color: white;
+    --main-background-color: white;
+    --footer-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,78,1) 35%, rgba(0,0,0,1) 100%);
+}
+
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav{
+    background: var(--nav-background);
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-bar{
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    width: min(80%, 300px);
+}
+
+#search-bar input{
+    flex: 1;
+    height: 1.5rem;
+    border-radius: 10px;
+}
+
+#search-bar input.invalid{
+    border-color: var(--invalid-input-border-color);
+}
+
+.invalid-message{
+    height: 1rem;
+    width: min(80%, 300px);
+    margin: 0;
+    color: var(--invalid-message-color);
+}
+
+#search-bar #search-button{
+    background-color: var(--search-button-background-color);
+    box-shadow: inset 3px -3px 4px 2px var(--search-button-shadow-color);
+    color: var(--search-button-icon-color);
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#search-bar #search-button:hover{
+    background-color: var(--search-button-background-color-hover);
+}
+
+main{
+    background-color: var(--main-background-color);
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+main > img{
+    width: min(80%, 500px);
+    height: auto;
+    filter: drop-shadow(-2px 2px 6px grey);
+}
+
+main > img.hidden{
+    opacity: 0;
+}
+
+footer{
+    height: 100px;
+    background: var(--footer-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > #logo{
+    width: min(80%, 300px);
+}
